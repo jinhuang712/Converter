@@ -1,8 +1,6 @@
 #ifndef UTIL_H
 #define UTIL_H
 #include <QString>
-#include <QQuaternion>
-#include <QVector3D>
 
 class Quaternion;
 class Euler;

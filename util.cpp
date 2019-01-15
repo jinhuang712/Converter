@@ -68,7 +68,6 @@ Quaternion Euler::toQuaternion(QString mode, bool radian) {
         y = y * M_PI / 180.0;
         z = z * M_PI / 180.0;
     }
-
     Quaternion q;
     double c1 = cos(x/2);
     double c2 = cos(y/2);

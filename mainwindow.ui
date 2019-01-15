@@ -6,308 +6,373 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>587</width>
-    <height>207</height>
+    <width>509</width>
+    <height>180</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="horizontalLayoutWidget">
+   <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>551</width>
+      <x>10</x>
+      <y>10</y>
+      <width>491</width>
       <height>171</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <property name="spacing">
+      <number>3</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetMaximumSize</enum>
+     </property>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="rpy_label">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="1">
+        <widget class="QComboBox" name="mode">
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
          </property>
-         <property name="text">
-          <string>RPY (Euler)</string>
-         </property>
+         <item>
+          <property name="text">
+           <string>XYZ</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>YZX</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>ZXY</string>
+          </property>
+         </item>
         </widget>
        </item>
-       <item>
-        <layout class="QGridLayout" name="rX_group">
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="rX">
-           <property name="text">
-            <string>0.00</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="rX_label">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>41</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>rX: roll</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QGridLayout" name="rY_group">
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="rY">
-           <property name="text">
-            <string>0.00</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="rY_label">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>41</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>rY: pitch</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QGridLayout" name="rZ_group">
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="rZ">
-           <property name="text">
-            <string>0.00</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="rZ_label">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>41</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>rZ: yall</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QVBoxLayout" name="button_group">
-       <property name="spacing">
-        <number>4</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <item alignment="Qt::AlignRight">
-        <widget class="QPushButton" name="euler_to_quaternion">
-         <property name="text">
-          <string>-&gt;</string>
+       <item row="0" column="2">
+        <widget class="QComboBox" name="math">
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
          </property>
-        </widget>
-       </item>
-       <item alignment="Qt::AlignRight">
-        <widget class="QPushButton" name="quaternion_to_euler">
-         <property name="text">
-          <string>&lt;-</string>
-         </property>
+         <item>
+          <property name="text">
+           <string>Degree</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Radians</string>
+          </property>
+         </item>
         </widget>
        </item>
       </layout>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="quaternion_label">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <property name="rightMargin">
+          <number>8</number>
          </property>
-         <property name="text">
-          <string>Quaternion</string>
+         <item alignment="Qt::AlignHCenter">
+          <widget class="QLabel" name="rpy_label">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>RPY (Euler)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="rX_group">
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="rX">
+             <property name="text">
+              <string>0.00000</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="rX_label">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>41</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>rX: roll</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="rY_group">
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="rY">
+             <property name="text">
+              <string>0.00000</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="rY_label">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>41</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>rY: pitch</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="rZ_group">
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="rZ">
+             <property name="text">
+              <string>0.00000</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="rZ_label">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>41</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>rZ: yall</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="button_group">
+         <property name="spacing">
+          <number>4</number>
          </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QGridLayout" name="q1_group">
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="q1">
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <item alignment="Qt::AlignRight">
+          <widget class="QPushButton" name="euler_to_quaternion">
            <property name="text">
-            <string>1.00</string>
+            <string>-&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="q1_label">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>41</width>
-             <height>0</height>
-            </size>
-           </property>
+         <item alignment="Qt::AlignRight">
+          <widget class="QPushButton" name="quaternion_to_euler">
            <property name="text">
-            <string>q1: w</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            <string>&lt;-</string>
            </property>
           </widget>
          </item>
         </layout>
        </item>
        <item>
-        <layout class="QGridLayout" name="q2_group">
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="q2">
-           <property name="text">
-            <string>0.00</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0" alignment="Qt::AlignHCenter">
-          <widget class="QLabel" name="q2_label">
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <item alignment="Qt::AlignHCenter">
+          <widget class="QLabel" name="quaternion_label">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
-           <property name="minimumSize">
-            <size>
-             <width>41</width>
-             <height>0</height>
-            </size>
-           </property>
            <property name="text">
-            <string>q2: x</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            <string>Quaternion</string>
            </property>
           </widget>
          </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QGridLayout" name="q3_group">
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="q3">
-           <property name="text">
-            <string>0.00</string>
-           </property>
-          </widget>
+         <item>
+          <layout class="QGridLayout" name="q1_group">
+           <item row="0" column="0">
+            <widget class="QLabel" name="q1_label">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>41</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>q1: w</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="q1">
+             <property name="text">
+              <string>1.00000</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="q3_label">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>41</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>q3: y</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
+         <item>
+          <layout class="QGridLayout" name="q2_group">
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="q2">
+             <property name="text">
+              <string>0.00000</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" alignment="Qt::AlignHCenter">
+            <widget class="QLabel" name="q2_label">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>41</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>q2: x</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QGridLayout" name="q4_group">
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="q4">
-           <property name="text">
-            <string>0.00</string>
-           </property>
-          </widget>
+         <item>
+          <layout class="QGridLayout" name="q3_group">
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="q3">
+             <property name="text">
+              <string>0.00000</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="q3_label">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>41</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>q3: y</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
-         <item row="0" column="0" alignment="Qt::AlignRight">
-          <widget class="QLabel" name="q4_label">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>41</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>q4: z</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
+         <item>
+          <layout class="QGridLayout" name="q4_group">
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="q4">
+             <property name="text">
+              <string>0.00000</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" alignment="Qt::AlignRight">
+            <widget class="QLabel" name="q4_label">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>41</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>q4: z</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
        </item>
@@ -315,33 +380,6 @@
      </item>
     </layout>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>587</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuMode">
-    <property name="title">
-     <string>Mode</string>
-    </property>
-    <addaction name="actionXYZ"/>
-    <addaction name="actionZXY"/>
-    <addaction name="actionYZX"/>
-   </widget>
-   <widget class="QMenu" name="menuRadian">
-    <property name="title">
-     <string>Radian</string>
-    </property>
-    <addaction name="actionRadians"/>
-    <addaction name="actionDegrees"/>
-   </widget>
-   <addaction name="menuMode"/>
-   <addaction name="menuRadian"/>
   </widget>
   <action name="actionXYZ">
    <property name="text">
