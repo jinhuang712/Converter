@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>594</width>
-    <height>171</height>
+    <width>587</width>
+    <height>207</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -316,6 +316,58 @@
     </layout>
    </widget>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>587</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuMode">
+    <property name="title">
+     <string>Mode</string>
+    </property>
+    <addaction name="actionXYZ"/>
+    <addaction name="actionZXY"/>
+    <addaction name="actionYZX"/>
+   </widget>
+   <widget class="QMenu" name="menuRadian">
+    <property name="title">
+     <string>Radian</string>
+    </property>
+    <addaction name="actionRadians"/>
+    <addaction name="actionDegrees"/>
+   </widget>
+   <addaction name="menuMode"/>
+   <addaction name="menuRadian"/>
+  </widget>
+  <action name="actionXYZ">
+   <property name="text">
+    <string>XYZ</string>
+   </property>
+  </action>
+  <action name="actionZXY">
+   <property name="text">
+    <string>ZXY</string>
+   </property>
+  </action>
+  <action name="actionYZX">
+   <property name="text">
+    <string>YZX</string>
+   </property>
+  </action>
+  <action name="actionRadians">
+   <property name="text">
+    <string>Radians</string>
+   </property>
+  </action>
+  <action name="actionDegrees">
+   <property name="text">
+    <string>Degrees</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
