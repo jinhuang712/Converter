@@ -1,8 +1,6 @@
 #include "util.h"
 
 #include <stdio.h>
-#include <math.h>
-#include <cmath>
 #include <QtMath>
 
 Quaternion::Quaternion()
@@ -35,62 +33,67 @@ Euler::Euler(double roll, double pitch, double yaw)
     this->z = yaw;
 }
 
-Euler Quaternion::toEuler(QString mode) {
+Euler Quaternion::toEuler(QString mode, bool radian) {
     Euler e;
-    if (mode == "ZXY") {
-        // roll (x-axis rotation)
-        double sinr_cosp = +2.0 * (scalar * x + y * z);
-        double cosr_cosp = +1.0 - 2.0 * (x * x + y * y);
-        e.x = atan2(sinr_cosp, cosr_cosp);
-
-        // pitch (y-axis rotation)
-        double sinp = +2.0 * (scalar * y - z * x);
-        if (fabs(sinp) >= 1)
-            e.y = copysign(M_PI_2, sinp); // use 90 degrees if out of range
-        else
-            e.y = asin(sinp);
-
-        // yaw (z-axis rotation)
-        double siny_cosp = +2.0 * (scalar * z + x * y);
-        double cosy_cosp = +1.0 - 2.0 * (y * y + z * z);
-        e.z = atan2(siny_cosp, cosy_cosp);
+    if (mode == "XYZ") {
+        e.x = atan2(2 * (x * scalar - y * z),
+                    (scalar * scalar - x * x - y * y + z * z));
+        e.y = asin(2 * (x * z + y * scalar));
+        e.z = atan2(2 * (z * scalar - x * y),
+                    (scalar * scalar + x * x - y * y - z * z));
+    } else if (mode == "ZXY") {
+        e.x = atan2(2 * (z * scalar - x * y),
+                    (scalar * scalar - x * x + y * y - z * z));
+        e.y = asin(2 * (x * scalar + y * z));
+        e.z = atan2(2 * (y * scalar - z * x),
+                    (scalar * scalar - x * x - y * y + z * z));
+    } else if (mode == "YZX") {
+        e.x = atan2(2 * (y * scalar - x * z),
+                    (scalar * scalar + x * x - y * y - z * z));
+        e.y = asin(2 * (x * y + z * scalar));
+        e.z = atan2(2 * (x * scalar - z * y),
+                    (scalar * scalar - x * x + y * y - z * z));
+    }
+    if (!radian) {
         e.x = e.x * 180.0 / M_PI;
         e.y = e.y * 180.0 / M_PI;
         e.z = e.z * 180.0 / M_PI;
-    } else if (mode == "YZX") {
-        QQuaternion q((float(scalar)), float(x), float(y), float(z));
-        QVector3D v = q.toEulerAngles();
-        e.x = double(v.x());
-        e.y = double(v.y());
-        e.z = double(v.z());
-    } else if (mode == "XYZ") {
-
     }
     return e;
 }
 
-Quaternion Euler::toQuaternion(QString mode) {
-    Quaternion q;
-    if (mode == "ZXY") {
-        double cy = cos(z * 0.5);
-        double sy = sin(z * 0.5);
-        double cp = cos(y * 0.5);
-        double sp = sin(y * 0.5);
-        double cr = cos(x * 0.5);
-        double sr = sin(x * 0.5);
+Quaternion Euler::toQuaternion(QString mode, bool radian) {
+    if (!radian) {
+        x = x * M_PI / 180.0;
+        y = y * M_PI / 180.0;
+        z = z * M_PI / 180.0;
+    }
 
-        q.scalar = cy * cp * cr + sy * sp * sr;
-        q.x = cy * cp * sr - sy * sp * cr;
-        q.y = sy * cp * sr + cy * sp * cr;
-        q.z = sy * cp * cr - cy * sp * sr;
+    Quaternion q;
+    double c1 = cos(x/2);
+    double c2 = cos(y/2);
+    double c3 = cos(z/2);
+    double s1 = sin(x/2);
+    double s2 = sin(y/2);
+    double s3 = sin(z/2);
+
+    if (mode == "XYZ") {
+        q.scalar = c1 * c2 * c3 - s1 * s2 * s3;
+        q.x = s1 * c2 * c3 + c1 * s2 * s3;
+        q.y = c1 * s2 * c3 - s1 * c2 * s3;
+        q.z = c1 * c2 * s3 + s1 * s2 * c3;
+
+    } else if (mode == "ZXY") {
+        q.scalar = c1 * c2 * c3 - s1 * s2 * s3;
+        q.x = s1 * c2 * c3 - c1 * s2 * s3;
+        q.y = c1 * s2 * c3 + s1 * c2 * s3;
+        q.z = c1 * c2 * s3 + s1 * s2 * c3;
+
     } else if (mode == "YZX") {
-        QVector3D e((float(x)), float(y), float(z));
-        QQuaternion qq = QQuaternion::fromEulerAngles(e);
-        q.scalar = double(qq.scalar());
-        q.x = double(qq.x());
-        q.y = double(qq.y());
-        q.z = double(qq.z());
-    } else if (mode == "XYZ") {
+        q.scalar = c1 * c2 * c3 - s1 * s2 * s3;
+        q.x = s1 * c2 * c3 + c1 * s2 * s3;
+        q.y = c1 * s2 * c3 + s1 * c2 * s3;
+        q.z = c1 * c2 * s3 - s1 * s2 * c3;
 
     }
     return q;

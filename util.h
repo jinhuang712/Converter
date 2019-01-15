@@ -13,7 +13,7 @@ class Quaternion
 public:
     Quaternion();
     Quaternion(double scalar, double x, double y, double z);
-    Euler toEuler(QString mode = "XYZ");
+    Euler toEuler(QString mode = "XYZ", bool radian = false);
     double scalar;
     double x;
     double y;
@@ -27,8 +27,7 @@ class Euler
 public:
     Euler();
     Euler(double roll, double pitch, double yaw);
-    Quaternion toQuaternion(QString mode = "XYZ");
-
+    Quaternion toQuaternion(QString mode = "XYZ", bool radian = false);
     double x;
     double y;
     double z;
