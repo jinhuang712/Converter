@@ -4,8 +4,6 @@
 #include <QMainWindow>
 #include <QQuaternion>
 #include <QVector3D>
-#include "quaternion.h"
-#include "euler.h"
 
 namespace Ui {
 class MainWindow;

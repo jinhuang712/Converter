@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "util.h"
 #include <stdio.h>
 #include <math.h>
 #include <cmath>
@@ -27,7 +28,7 @@ void MainWindow::on_euler_to_quaternion_clicked()
     double y = ui->rY->text().toDouble();
     double z = ui->rZ->text().toDouble();
     Euler e(x, y, z);
-    Quaternion q = e.to_quaternion();
+    Quaternion q = e.toQuaternion();
 
     ui->q1->setText(QString::number(q.scalar, 'f', 5));
     ui->q2->setText(QString::number(q.x,      'f', 5));
@@ -45,7 +46,7 @@ void MainWindow::on_quaternion_to_euler_clicked()
     double q3 =      ui->q3->text().toDouble();
     double q4 =      ui->q4->text().toDouble();
     Quaternion q(scalar, q2, q3, q4);
-    Euler e = q.to_euler();
+    Euler e = q.toEuler();
     ui->rX->setText(QString::number(e.x, 'f', 5));
     ui->rY->setText(QString::number(e.y, 'f', 5));
     ui->rZ->setText(QString::number(e.z, 'f', 5));

@@ -27,13 +27,11 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    quaternion.cpp \
-    euler.cpp
+    util.cpp
 
 HEADERS += \
         mainwindow.h \
-    quaternion.h \
-    euler.h
+    util.h
 
 FORMS += \
         mainwindow.ui
